@@ -35,12 +35,16 @@ import { URL } from 'url';
 import notificationRoutes from './notifications';
 import radarrRoutes from './radarr';
 import sonarrRoutes from './sonarr';
+import prowlarrRoutes from './prowlarr';
+import qbittorrentRoutes from './qbittorrent';
 
 const settingsRoutes = Router();
 
 settingsRoutes.use('/notifications', notificationRoutes);
 settingsRoutes.use('/radarr', radarrRoutes);
 settingsRoutes.use('/sonarr', sonarrRoutes);
+settingsRoutes.use('/prowlarr', prowlarrRoutes);
+settingsRoutes.use('/qbittorrent', qbittorrentRoutes);
 settingsRoutes.use('/discover', discoverSettingRoutes);
 
 const filteredMainSettings = (

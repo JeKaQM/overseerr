@@ -9,6 +9,8 @@ const messages = defineMessages({
   menuUsers: 'Users',
   menuPlexSettings: 'Plex',
   menuServices: 'Services',
+  menuIndexers: 'Search Indexers',
+  menuDownloadClient: 'Download Client',
   menuNotifications: 'Notifications',
   menuLogs: 'Logs',
   menuJobs: 'Jobs & Cache',
@@ -42,6 +44,16 @@ const SettingsLayout = ({ children }: SettingsLayoutProps) => {
       text: intl.formatMessage(messages.menuServices),
       route: '/settings/services',
       regex: /^\/settings\/services/,
+    },
+    {
+      text: intl.formatMessage(messages.menuIndexers),
+      route: '/settings/indexers',
+      regex: /^\/settings\/indexers/,
+    },
+    {
+      text: intl.formatMessage(messages.menuDownloadClient),
+      route: '/settings/download',
+      regex: /^\/settings\/download/,
     },
     {
       text: intl.formatMessage(messages.menuNotifications),
