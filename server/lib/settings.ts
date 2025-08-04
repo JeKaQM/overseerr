@@ -80,6 +80,27 @@ export interface SonarrSettings extends DVRSettings {
   enableSeasonFolders: boolean;
 }
 
+export interface ProwlarrSettings {
+  id: number;
+  name: string;
+  hostname: string;
+  port: number;
+  apiKey: string;
+  useSsl: boolean;
+  baseUrl?: string;
+}
+
+export interface QbittorrentSettings {
+  id: number;
+  name: string;
+  hostname: string;
+  port: number;
+  useSsl: boolean;
+  username: string;
+  password: string;
+  baseUrl?: string;
+}
+
 interface Quota {
   quotaLimit?: number;
   quotaDays?: number;
@@ -265,6 +286,8 @@ interface AllSettings {
   tautulli: TautulliSettings;
   radarr: RadarrSettings[];
   sonarr: SonarrSettings[];
+  prowlarr: ProwlarrSettings[];
+  qbittorrent: QbittorrentSettings[];
   public: PublicSettings;
   notifications: NotificationSettings;
   jobs: Record<JobId, JobSettings>;
@@ -312,6 +335,8 @@ class Settings {
       tautulli: {},
       radarr: [],
       sonarr: [],
+      prowlarr: [],
+      qbittorrent: [],
       public: {
         initialized: false,
       },
@@ -480,6 +505,22 @@ class Settings {
 
   set sonarr(data: SonarrSettings[]) {
     this.data.sonarr = data;
+  }
+
+  get prowlarr(): ProwlarrSettings[] {
+    return this.data.prowlarr;
+  }
+
+  set prowlarr(data: ProwlarrSettings[]) {
+    this.data.prowlarr = data;
+  }
+
+  get qbittorrent(): QbittorrentSettings[] {
+    return this.data.qbittorrent;
+  }
+
+  set qbittorrent(data: QbittorrentSettings[]) {
+    this.data.qbittorrent = data;
   }
 
   get public(): PublicSettings {
